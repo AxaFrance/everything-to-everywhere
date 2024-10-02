@@ -1,0 +1,1 @@
+export { defineCustomElementReact } from './defineCustomElementReact';
