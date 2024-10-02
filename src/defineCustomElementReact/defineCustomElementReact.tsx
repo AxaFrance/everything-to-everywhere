@@ -49,21 +49,16 @@ const WrapperComponent = ({
 };
 
 type defineCustomElementReactType = {
-  componentNameSpace: string;
+  namespace: string;
   component: React.FC;
   name?: string;
   props?: string[];
 };
 
-export const defineCustomElementReact = ({
-  componentNameSpace,
-  component,
-  name,
-  props,
-}: defineCustomElementReactType): void => {
+export const defineCustomElementReact = ({ namespace, component, name, props }: defineCustomElementReactType): void => {
   const componentName = name || camelCasetoKebabCase(component.displayName || component.name);
 
-  if (customElements.get(`${componentNameSpace}-${componentName}`)) {
+  if (customElements.get(`${namespace}-${componentName}`)) {
     return;
   }
 
@@ -148,5 +143,5 @@ export const defineCustomElementReact = ({
     });
   });
 
-  customElements.define(`${componentNameSpace}-${componentName}`, ReactWrapperCustomElements);
+  customElements.define(`${namespace}-${componentName}`, ReactWrapperCustomElements);
 };
