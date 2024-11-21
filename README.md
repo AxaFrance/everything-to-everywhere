@@ -2,7 +2,9 @@
 
 ## Besoin
 
-Ce package permet d'utiliser des composants React dans n'importe quel environnement qu'importe le framework ou la stack utilisé grâce à la technologie des customs elements. 
+Ce package permet d'utiliser, pour le moment, des composants React dans n'importe quel environnement qu'importe le framework ou la stack utilisé grâce à la technologie des customs elements. 
+
+Par la suite, il permettra d'utiliser des composants développé grâce à d'autres librairies ou framework également.
 
 ## Utilisation
 
