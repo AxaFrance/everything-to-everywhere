@@ -1,18 +1,18 @@
 # EverythingToEverywhere
 
-## Besoin
+## Need
 
-Ce package permet d'utiliser, pour le moment, des composants React dans n'importe quel environnement qu'importe le framework ou la stack utilisé grâce à la technologie des customs elements. 
+This package allows you to use React components in any environment, regardless of the framework or stack used, thanks to the technology of custom elements.
 
-Par la suite, il permettra d'utiliser des composants développé grâce à d'autres librairies ou framework également.
+In the future, it will also allow the use of components developed with other libraries or frameworks.
 
-## Utilisation
+## Usage
 
-### Composant React à utiliser
+### Example for React Component that you can use
 
-Pour le moment, cette méthode ne fonctionne qu'avec les arrow function components.
+Currently, this method only works with arrow function components.
 
-Voici un exemple de composant très simple avec le support de props de différent types en entrée (avec valeur par défaut possible).
+Here is a very simple component example that supports props of different types as input (with possible default values).
 
 ```jsx
 import React from "react";
@@ -31,41 +31,37 @@ const AnyReactComponent = ({ type = "default value", mode, children, array = [],
   <input type="text" onChange={onUpdate} />
 </>
 
-
 AnyReactComponent.displayName = "AnyReactComponent";
 
 export default AnyReactComponent;
 ```
 
+### Making the React Component usable everywhere
+To make the previously created React component usable anywhere as a custom element, you need to define this custom element.
 
-### Rendre utilisable le composant React
-Afin de rendre le composant React précédemment créé utilisable n'importe où sous la forme d'un custom element, il faut définir ce custom element. 
-
-La méthode `defineCustomElementReact` vous permet justement de proposer plusieurs éléments essentiels : 
+The method `defineCustomElementReact` allows you to specify several essential elements: 
 #### namespace
-type : *string*
+type: *string*
 
-Un custom element doit être préfixé d'un namespace afin d'éviter tout conflit avec des balises ou directives existantes.
+It's highly recommended to prefix the custom element by a namespace to avoid conflicts with existing tags or directives.
 
 #### component
-type : *React.FC*
+type: *React.FC*
 
-Il est nécessaire dans cette propriété de passer un composant sous la forme d'une arrow function component.
+It's necessary to provide an arrow function component in this property.
 
 #### name
-type : *string* optionnal
+type: *string* optional
 
-Le nom du custom element peut être inféré depuis le nom du composant passé dans la propriété `component` ou son `displayName`.
-Vous pouvez évidemment le personnaliser grâce à cette propriété.
+The name of the custom element can be inferred from the name of the component passed in the `component` property or its `displayName`. You can, of course, customize it using this property.
 
 #### props
-type : *string[]* optionnal (requis si le composant react n'est pas sous la forme d'une arrow function)
+type: *string[]* optional (required if the React component is not an arrow function)
 
-Cette propriété sert à indiquer la liste des props que vous voulez que le custom element écoutent. A chaque fois qu'une des valeurs changera, le custom element sera rerender.
-
+This property indicates the list of props that you want to listen. Whenever one of the values changes, the custom element will re-render.
 
 ```js
-import { defineCustomElementReact } from '@axa-fr/everything-to-everywhere';
+import { defineCustomElementReact } from '@axa-fr/everything-to-everywhere';
 import AnyReactComponent from './AnyReactComponent';
 
 defineCustomElementReact({
@@ -76,17 +72,17 @@ defineCustomElementReact({
 })
 ```
 
-Cependant, dans un cas très simple, vous pouvez omettre le nom du composant et la liste des propriétés. Cela fonctionne seulement : 
-- si vous souhaitez mapper toutes les props 
-- que votre composant les destructures toutes de facon explicites. Par exemple `({prop1, prop2, prop3})` fonctionnerait mais pas `({prop1, ...props})` ou `(props)`
-- que votre composant soit sous la forme d'une arrow function component
-- la target du bundle soit > ES6
-- pas de déplacement sur la destructuration des props au bundle
+However, in a very simple case, you can omit the component name and the list of properties. This only works if: 
+- you want to map all the props 
+- your component destructures all of them explicitly. For example `({prop1, prop2, prop3})` would work but not `({prop1, ...props})` or `(props)`
+- your component is in the form of an arrow function component
+- the target of the bundle is > ES6
+- there is no modification on the destructuring of props in the bundle
 
-Vous pouvez dans tous les cas passer des valeurs par défaut.
+You can, in all cases, set default values.
 
 ```js
-import { defineCustomElementReact } from '@axa-fr/everything-to-everywhere';
+import { defineCustomElementReact } from '@axa-fr/everything-to-everywhere';
 import AnyReactComponent from './AnyReactComponent';
 
 defineCustomElementReact({
@@ -95,16 +91,16 @@ defineCustomElementReact({
 })
 ```
 
-### Utiliser le nouveau custom element
+### Using the new custom element
 
-Dans notre premier exemple, le composant React s'appelait `AnyReactComponent` (en pascal case).
-Le custom element doit répondre aux normes de l'HTML et aux bonnes pratiques en vigueur, donc avec un namespace et en pascal case.
+In our previous example, the React component was called `AnyReactComponent` (in Pascal case). 
+The custom element must comply with HTML standards and best practices, so it should have a namespace and be in kebab case.
 
-Notre composant sera donc utilisable sous le nom `owc-any-react-component`.
+Our component will be usable with the name `owc-any-react-component`.
 
-#### Passer des données
+#### Passing Data
 
-Il faudra également lui passer tous ses attributs obligatoires : 
+You will also need to pass all its required attributes: 
 
 ```html
 <owc-any-react-component
@@ -116,26 +112,26 @@ Il faudra également lui passer tous ses attributs obligatoires :
 </owc-any-react-component>
 ```
 
-Ici `type` n'est pas passé car il avait une valeur par défaut dans sa déclaration précédente.
+Here, `type` is not provided because it had a default value in its previous declaration.
 
-Ce custom element est disponible partout où vous pouvez écrire du HTML, que ce soit dans une directive AngularJS, du JSX, etc.
+This custom element is available wherever you can write HTML, whether in an AngularJS directive, JSX, etc.
 
-#### Gérer les événements
+#### Handling Events
 
-Les événements sont à gérer sous la forme d'un callback que l'on viendra ajouter après la définition du custom element.
+Events are managed with callbacks that can be add after defining the custom element.
 
-Reprenons notre exemple précédent en l'épurant un peu.
+Let’s take our previous example and simplify it a little bit.
 
-```javascript
+```js
 const AnyReactComponent = ({ type = "default value", mode, children, array = [], object, number, onUpdate }) => <>
   ...
   <input type="text" onChange={onUpdate} />
 </>
 ```
 
-Pour rappel, dans notre cas, notre composant sera utilisé avec la balise `owc-any-react-component`. 
+As a reminder, in our case, our component will be used with the tag `owc-any-react-component`. 
 
-Nous allons venir attacher nos événéments sous cette forme : 
+We will add our events by this way: 
 
 ```js
 const $OwcAnyReactComponent = document.querySelector("owc-any-react-component");
@@ -144,8 +140,10 @@ $OwcAnyReactComponent.onUpdate = event => {
 };
 ```
 
-La gestion de l'event se fait donc en plusieurs étapes : 
-1. Passer notre événement `onUpdate` en prop du composant React
-2. Appeler cette méthode au moment voulu (par exemple ici en callback de notre événément `onChange` de notre input) dans le composant React
-3. Récupérer notre custom element où l'on souhaite gérer l'événement
-4. Accrocher un nouvel attribut à notre custom element récemment récupéré (même nom que la prop passée dans le composant React, récupération possible des paramètre passé lorsque cette méthode a été appelé en React)
+Event management occurs in several steps: 
+1. Pass our `onUpdate` event as a prop of the React component
+2. Call this method at the appropriate time (for example, as a callback for our `onChange` event of our input) in the React component
+3. Retrieve our custom element where we want to manage the event
+4. Attach a new attribute to our recently retrieved custom element (with the same name as the prop passed in the React component, the parameters can be retrieved)
+
+Off course, you can also manage event by the way you want, for example by dispatching custom event, that works very well too.

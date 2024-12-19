@@ -1,43 +1,43 @@
-# Contribuer à la librairie everythingToEverywhere AXA France
+# Contributing to the everythingToEverywhere library AXA France
 
-Merci de considérer la contribution au repo everythingToEverywhere ! Nous sommes ravis de voir que vous souhaitez participer à l'amélioration de ce projet.
+Thank you for considering contributing to the everythingToEverywhere repository! We are excited to see that you want to participate in improving this project.
 
-## Démarrage du projet
+## Getting Started
 
-Le build du projet se fait via la commande `npm run build`. Pour tester le package en local, vous pouvez faire une installation locale grâce à la commande `npm i <local_path>`.
+The project build is done using the command `npm run build`. To test the package locally, you can perform a local installation using the command `npm i <local_path>`.
 
-## Comment contribuer
+## How to Contribute
 
-1. **Fork du Projet :** Commencez par forker le projet vers votre compte GitHub.
+1. **Fork the Project:** Start by forking the project to your GitHub account.
 
-2. **Cloner le Projet :** Clonez le projet depuis votre compte vers votre machine locale.
-
-```bash
-git clone https://github.com/votre-utilisateur/everythingToEverywhere.git
-```
-
-3. **Créer une Branche :** Créez une branche pour travailler sur votre nouvelle fonctionnalité ou correction.
+2. **Clone the Project:** Clone the project from your account to your local machine.
 
 ```bash
-git switch -c nom-de-ma-branche
+git clone https://github.com/your-username/everythingToEverywhere.git
 ```
 
-1. **Faire des Modifications :** Effectuez les modifications nécessaires et assurez-vous que votre code respecte les conventions du projet. Utilisez la [Conventional Commits](https://www.conventionalcommits.org/) pour le nommage et la découpe des commits.
+3. **Create a Branch:** Create a branch to work on your new feature or fix.
 
-2. **Tester Localement :** Testez votre code localement pour vous assurer qu'il fonctionne correctement.
+```bash
+git switch -c my-branch-name
+```
 
-3. **Soumettre une Pull Request :** Une fois que vous êtes satisfait de vos modifications, soumettez une pull request vers la branche principale du projet.
+4. **Make Changes:** Make the necessary changes and ensure your code follows to the project's conventions. Use [Conventional Commits](https://www.conventionalcommits.org/) for naming and splitting commits.
 
-## Système de Tâches
+5. **Test Locally:** Test your code locally to ensure it works correctly.
 
-Toutes les tâches et discussions sont gérées via les issues sur GitHub. Consultez la [page des issues](https://github.com/AxaFrance/everythingToEverywhere/issues) pour voir ce sur quoi les collaborateurs travaillent actuellement.
+6. **Submit a Pull Request:** Once you are satisfied with your changes, submit a pull request to the main branch of the project.
 
-Si vous souhaitez travailler sur une tâche spécifique, veuillez vous attribuer cette issue ou en discuter dans les commentaires.
+## Task System
+
+All tasks and discussions are managed via issues on GitHub. Check the [issues page](https://github.com/AxaFrance/everythingToEverywhere/issues) to see what collaborators are currently working on.
+
+If you would like to work on a specific task, please assign yourself to that issue or discuss it in the comments.
 
 ## Communication
 
-Rejoignez les discussions sur le projet en consultant les différentes sections du tableau [Projects](https://github.com/AxaFrance/everythingToEverywhere/projects). Nous possédons également des groupes de discussions internes si vous le souhaitez.
+Join the discussions on the project by checking the various sections of the [Projects](https://github.com/AxaFrance/everythingToEverywhere/projects) board. We also have internal discussion groups if you wish.
 
-## Code de Conduite
+## Code of Conduct
 
-Veuillez lire et suivre notre [Code de Conduite](./CODE_OF_CONDUCT.md). Nous encourageons un environnement respectueux et inclusif.
+Please read and follow our [Code of Conduct](./CODE_OF_CONDUCT.md). We encourage a respectful and inclusive environment.
