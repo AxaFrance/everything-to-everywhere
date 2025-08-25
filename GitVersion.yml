@@ -1,0 +1,7 @@
+mode: ContinuousDeployment
+branches:
+  main:
+    mode: ContinuousDeployment
+    increment: Patch
+    tag: ""
+assembly-versioning-scheme: MajorMinorPatch
