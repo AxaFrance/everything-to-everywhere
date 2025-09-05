@@ -1,20 +1,16 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "es6",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    },
-    "moduleResolution": "Node",
+    "lib": ["DOM", "ES2022"],
+    "module": "ESNext",
     "jsx": "react-jsx",
-    "outDir": "dist",
-    "importsNotUsedAsValues": "remove",
+    "noEmit": true,
     "strict": true,
-    "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "Bundler",
+    "useDefineForClassFields": true,
+    "allowImportingTsExtensions": true
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+  "include": ["src"]
 }
